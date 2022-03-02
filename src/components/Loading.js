@@ -46,10 +46,10 @@ function Loading() {
 
   setTimeout(() => {
     setIsHidden();
-  }, 1500);
+  }, 500);
 
   return (
-    <div className={styles.line}>
+    <div className={(styles.line, styles.loading)}>
       <div className={`${isHidden1 ? "hidden" : styles.line1}`}></div>
       <div className={`${isHidden2 ? "hidden" : styles.line2}`}></div>
       <div className={`${isHidden3 ? "hidden" : styles.line3}`}></div>
