@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./routes/Home";
 
 function App() {
   return (
-   <div>project build up log-in</div>
+    <Routes>
+      <Route path={`/`} exact element={<Home />} />
+    </Routes>
   );
 }
 
