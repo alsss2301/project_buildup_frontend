@@ -3,7 +3,10 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Login.module.css";
 
+import GoogleLogin from "./googleLogin";
+
 function Login() {
+  // 기본 로그인
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
@@ -44,6 +47,8 @@ function Login() {
       <button className={styles.loginBtn}>로그인</button>
       <br></br>
       <button className={styles.joinBtn}>회원가입</button>
+
+      <GoogleLogin />
     </div>
   );
 }
