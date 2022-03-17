@@ -4,7 +4,10 @@ import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import Join from "./Join"
 
+import GoogleLogin from "./googleLogin";
+
 function Login() {
+  // 기본 로그인
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
@@ -44,9 +47,15 @@ function Login() {
       <br></br>
       <button className={styles.loginBtn}>로그인</button>
       <br></br>
+<<<<<<< HEAD:src/components/Login.js
       <Link to={`/join`}>
         <button className={styles.joinBtn}>회원가입</button>
       </Link>
+=======
+      <button className={styles.joinBtn}>회원가입</button>
+
+      <GoogleLogin />
+>>>>>>> 77a3c36b6844a67f5f0b5b35ff62599b5ae4bafd:src/components/Logins/Login.js
     </div>
       
   );
