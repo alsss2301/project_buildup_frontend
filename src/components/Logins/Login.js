@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 
 import GoogleLogin from "./googleLogin";
+import NaverLogin from "./naverLogin";
 
 function Login() {
   // 기본 로그인
@@ -49,6 +50,7 @@ function Login() {
       <button className={styles.joinBtn}>회원가입</button>
 
       <GoogleLogin />
+      <NaverLogin />
     </div>
   );
 }
