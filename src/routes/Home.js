@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Loading from "../components/Loading";
 import Login from "../components/Logins/Login";
 

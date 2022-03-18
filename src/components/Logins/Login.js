@@ -1,7 +1,8 @@
 //로그인화면
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
+import Join from "../Join";
 
 import GoogleLogin from "./googleLogin";
 import NaverLogin from "./naverLogin";
@@ -47,10 +48,13 @@ function Login() {
       <br></br>
       <button className={styles.loginBtn}>로그인</button>
       <br></br>
-      <button className={styles.joinBtn}>회원가입</button>
-
-      <GoogleLogin />
-      <NaverLogin />
+      <Link to={`/join`}>
+        <button className={styles.joinBtn}>회원가입</button>
+      </Link>
+      <div>
+        <GoogleLogin />
+        <NaverLogin />
+      </div>
     </div>
   );
 }

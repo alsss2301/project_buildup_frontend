@@ -46,7 +46,7 @@ function Loading() {
 
   setTimeout(() => {
     setIsHidden();
-  }, 500);
+  }, 800);
 
   return (
     <div className={(styles.line, styles.loading)}>
