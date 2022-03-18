@@ -1,10 +1,11 @@
 //로그인화면
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
-import Join from "../Join"
+import Join from "../Join";
 
 import GoogleLogin from "./googleLogin";
+import NaverLogin from "./naverLogin";
 
 function Login() {
   // 기본 로그인
@@ -52,9 +53,9 @@ function Login() {
       </Link>
       <div>
         <GoogleLogin />
+        <NaverLogin />
       </div>
     </div>
-      
   );
 }
 
