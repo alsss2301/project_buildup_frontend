@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
+import Login from "../components/Logins/Login";
 
 function Join() {
 
@@ -20,7 +22,15 @@ function Join() {
         });
       };
 
-    return (
+      const onSubmit = (e) => {
+        e.preventDefault(); // 원래 해야될 작업을 안하게 해주는 함수.
+        if(password !== password2)
+          {
+            alert("비밀번호와 비밀번호 확인이 다릅니다.");
+          }
+      }
+
+      return (
         <div>
             <h1 className={styles.join}>회원가입</h1>
             <input 
@@ -61,8 +71,9 @@ function Join() {
                 onChange={onChange}
             />
             <br></br>
-            <button className={styles.Btn}>완료</button>
+              <button className={styles.Btn} onClick={password == password2 ? ()=><Login /> : onSubmit}>완료</button>
         </div>
+
         
 
     );

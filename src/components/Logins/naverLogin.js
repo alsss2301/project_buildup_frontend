@@ -16,7 +16,7 @@ class NaverLogin extends Component {
     naverScript.onload = () => {
       const naverLogin = new window.naver.LoginWithNaverId({
         clientId: "w3SNdiwMa0pxbCx4iPev",
-        callbackUrl: "https://localhost:3000",
+        callbackUrl: "https://localhost:3000/main",
         callbackHandle: true,
         isPopup: false,
         loginButton: {

@@ -19,7 +19,7 @@ export default function googleLogin({ onSocial }) {
       socialType: "google",
       email,
       nickname: name,
-    });
+    }); 
   };
 
   const onFailure = (error) => {
