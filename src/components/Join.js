@@ -82,8 +82,6 @@ function Join() {
               <button className={styles.Btn} onClick={{password} == {password2} ? Login : onSubmit}>완료</button> 
         </div>
 
-        
-
     );
 } 
 
