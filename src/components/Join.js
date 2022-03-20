@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
 import Home from "../routes/Home";
 
-axios.defaults.withCredentials = true;
+import GetData from "../api/api";
 
 function Join() {
   const [data, setData] = useState([]);
@@ -45,17 +44,7 @@ function Join() {
     try {
       setError(null);
       setData(null);
-      axios.defaults.withCredentials = true;
-
-      const response = await axios.post(
-        "/account/signup",
-        {
-          nickname: nickname,
-          id: id,
-          password: password,
-        },
-        { withCredentials: true }
-      );
+      const response = await GetData(nickname, id, password);
     } catch (e) {
       setError(e);
     }
