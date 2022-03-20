@@ -75,9 +75,7 @@ function Join() {
       <br></br>
       <form>
         <Link to={`/`}>
-          <button type={submit} className={styles.Btn}>
-            완료
-          </button>
+          <button className={styles.Btn}>완료</button>
         </Link>
       </form>
     </div>
