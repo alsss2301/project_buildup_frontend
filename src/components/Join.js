@@ -8,6 +8,7 @@ axios.defaults.withCredentials = true;
 
 function Join() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [inputs, setInputs] = useState({
@@ -45,10 +46,10 @@ function Join() {
     try {
       setError(null);
       setData(null);
-      axios.defaults.withCredentials = true;
+      setLoading(true);
 
       const response = await axios.post(
-        "/account/signup",
+        "http://34.64.111.239:8000/account/signup",
         {
           nickname: nickname,
           id: id,
@@ -59,6 +60,7 @@ function Join() {
     } catch (e) {
       setError(e);
     }
+    setLoading(false);
   };
 
   return (
