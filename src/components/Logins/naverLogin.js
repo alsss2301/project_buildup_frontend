@@ -16,12 +16,12 @@ class NaverLogin extends Component {
     naverScript.onload = () => {
       const naverLogin = new window.naver.LoginWithNaverId({
         clientId: "w3SNdiwMa0pxbCx4iPev",
-        callbackUrl: "https://localhost:3000",
+        callbackUrl: "https://localhost:3000/main",
         callbackHandle: true,
         isPopup: false,
         loginButton: {
           color: "green",
-          type: 3,
+          type: 1,
           height: 45,
         },
       });
@@ -32,7 +32,7 @@ class NaverLogin extends Component {
         if (status) {
           return <Main />;
         } else {
-          return console.log("error");
+          return console.log("not logined");
         }
       });
     };
