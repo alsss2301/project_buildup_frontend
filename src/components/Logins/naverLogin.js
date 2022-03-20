@@ -21,7 +21,7 @@ class NaverLogin extends Component {
         isPopup: false,
         loginButton: {
           color: "green",
-          type: 3,
+          type: 1,
           height: 45,
         },
       });
@@ -32,7 +32,7 @@ class NaverLogin extends Component {
         if (status) {
           return <Main />;
         } else {
-          return console.log("error");
+          return console.log("not logined");
         }
       });
     };
