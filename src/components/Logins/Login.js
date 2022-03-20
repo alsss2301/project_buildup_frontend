@@ -1,5 +1,6 @@
 //로그인화면
 import React, { useState } from "react";
+import axios from 'axios';
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import Join from "../Join";
@@ -7,12 +8,18 @@ import Join from "../Join";
 import GoogleLogin from "./googleLogin";
 import NaverLogin from "./naverLogin";
 
+axios.defaults.withCredentials = true; //서버 이름이 다를 경우 동일 기원으로 인식해주기 위해서,, 씀.
+
+
 function Login() {
   // 기본 로그인
   const [inputs, setInputs] = useState({
     id: "",
     password: "",
   });
+
+  const [data, setData] = useState([]);
+  const [error,setError] = useState(null);
 
   const { id, password } = inputs;
 
@@ -22,6 +29,18 @@ function Login() {
       ...inputs,
       [name]: value, // [e.target.name]: e.target.value
     });
+  };
+
+  const getId = async() => {
+    try {
+      setData(null);
+      setError(null);
+
+      const response = await axios.get('url' , {withCredentials:true});
+      setData(response.data.id);
+    } catch (e) {
+      setError(e);
+    }
   };
 
   return (
@@ -46,7 +65,7 @@ function Login() {
         onChange={onChange}
       />
       <br></br>
-      <button className={styles.loginBtn}>로그인</button>
+      <button className={styles.loginBtn} onClick={getId}>로그인</button>
       <br></br>
       <Link to={`/join`}>
         <button className={styles.joinBtn}>회원가입</button>

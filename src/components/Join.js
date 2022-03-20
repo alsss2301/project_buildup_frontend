@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
 import Login from "../components/Logins/Login";
+
+axios.defaults.withCredentials = true;
 
 function Join() {
 
@@ -30,6 +33,11 @@ function Join() {
           }
       }
 
+      const  Login= () => {
+        const resultForm = <Route path="/Login" exact element={<Login/>} />;
+        return resultForm;
+      }
+
       return (
         <div>
             <h1 className={styles.join}>회원가입</h1>
@@ -41,7 +49,7 @@ function Join() {
                 value={nickname}
                 onChange={onChange}
             />
-            <button className={styles.check}>중복확인</button>
+            <button className={styles.check} >중복확인</button>
             <br></br>
              <input 
                 className={styles.id}
@@ -71,7 +79,7 @@ function Join() {
                 onChange={onChange}
             />
             <br></br>
-              <button className={styles.Btn} onClick={password == password2 ? ()=><Login /> : onSubmit}>완료</button>
+              <button className={styles.Btn} onClick={{password} == {password2} ? Login : onSubmit}>완료</button> 
         </div>
 
         
