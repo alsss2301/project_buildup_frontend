@@ -8,7 +8,7 @@ function Home() {
 
   setTimeout(() => {
     setLoading(false);
-  }, 5000);
+  }, 1);
 
   return <div>{loading ? <Loading /> : <Login />}</div>;
 }

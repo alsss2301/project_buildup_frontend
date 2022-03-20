@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
-import Login from "../components/Logins/Login";
+import Home from "../routes/Home";
 
 axios.defaults.withCredentials = true;
 
 function Join() {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
   const [inputs, setInputs] = useState({
     nickname: "",
     id: "",
@@ -16,6 +19,14 @@ function Join() {
 
   const { nickname, id, password, password2 } = inputs;
 
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value, // [e.target.name]: e.target.value
+    });
+  };
+
   const onSubmit = (e) => {
     e.preventDefault(); // 원래 해야될 작업을 안하게 해주는 함수.
     if (password !== password2) {
@@ -24,8 +35,30 @@ function Join() {
   };
 
   const Login = () => {
-    const resultForm = <Route path="/Login" exact element={<Login />} />;
-    return resultForm;
+    alert("회원가입이 완료되었습니다!");
+    //data to server
+
+    // return <Route path="/" exact element={<Home />} />;
+  };
+
+  const getData = async () => {
+    try {
+      setError(null);
+      setData(null);
+      axios.defaults.withCredentials = true;
+
+      const response = await axios.post(
+        "/account/signup",
+        {
+          nickname: nickname,
+          id: id,
+          password: password,
+        },
+        { withCredentials: true }
+      );
+    } catch (e) {
+      setError(e);
+    }
   };
 
   return (
@@ -69,24 +102,12 @@ function Join() {
         onChange={onChange}
       />
       <br></br>
-      <button
-        className={styles.Btn}
-        onClick={{ password } == { password2 } ? Login : onSubmit}
-      >
-        완료
-      </button>
+      <Link to={`/`}>
+        <button className={styles.Btn} onClick={getData}>
+          완료
+        </button>
+      </Link>
     </div>
-
-    /*
-  const onSubmit = (event) => {
-    event.preventDefault();
-    if (password !== password2) {
-      return alert("비밀번호와 비밀번호확인은 같아야 합니다.");
-    } else {
-      console.log("a");
-      return <Login />;
-    }
-  }; */
   );
 }
 
