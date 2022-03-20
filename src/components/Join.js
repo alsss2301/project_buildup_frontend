@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
 import Login from "../components/Logins/Login";
+
+axios.defaults.withCredentials = true;
 
 function Join() {
   const [inputs, setInputs] = useState({
@@ -18,6 +21,11 @@ function Join() {
     if (password !== password2) {
       alert("비밀번호와 비밀번호 확인이 다릅니다.");
     }
+  };
+
+  const Login = () => {
+    const resultForm = <Route path="/Login" exact element={<Login />} />;
+    return resultForm;
   };
 
   return (
@@ -63,7 +71,7 @@ function Join() {
       <br></br>
       <button
         className={styles.Btn}
-        onClick={password == password2 ? () => <Login /> : onSubmit}
+        onClick={{ password } == { password2 } ? Login : onSubmit}
       >
         완료
       </button>
