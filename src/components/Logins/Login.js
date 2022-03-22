@@ -5,9 +5,6 @@ import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import Join from "../Join";
 
-import GoogleLogin from "./googleLogin";
-import NaverLogin from "./naverLogin";
-
 axios.defaults.withCredentials = true; //서버 이름이 다를 경우 동일 기원으로 인식해주기 위해서,, 씀.
 
 function Login() {
@@ -71,10 +68,6 @@ function Login() {
       <Link to={`/join`}>
         <button className={styles.joinBtn}>회원가입</button>
       </Link>
-      <div>
-        <GoogleLogin />
-        <NaverLogin />
-      </div>
     </div>
   );
 }
