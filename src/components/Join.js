@@ -38,7 +38,7 @@ function Join() {
   const getData = async () => {
     try {
       // setError(null);
-      setData(null);
+      setData(null); //얘도 에러 원인임. Link to 사용해서 그런데 어차피 나중에 Link to 안쓸꺼니까 나두겠음
 
       const response = await PostData(nickname, id, password);
     } catch (e) {
@@ -87,11 +87,9 @@ function Join() {
         onChange={onChange}
       />
       <br></br>
-      <Link to={`/`}>
-        <button className={styles.Btn} onClick={getData}>
-          완료
-        </button>
-      </Link>
+      <button className={styles.Btn} onClick={getData}>
+        완료
+      </button>
     </div>
   );
 }
