@@ -40,5 +40,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://34.64.111.239:8000/account/signup"
+  "proxy": "http://34.64.111.239:8000"
 }
