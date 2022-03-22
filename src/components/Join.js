@@ -33,19 +33,7 @@ function Join() {
     if (password !== password2) {
       alert("비밀번호와 비밀번호 확인이 다릅니다.");
     }
-  };
-
-<<<<<<< HEAD
-    );
-} 
-=======
-  const Login = () => {
-    alert("회원가입이 완료되었습니다!");
-    //data to server
-
-    // return <Route path="/" exact element={<Home />} />;
-  };
->>>>>>> postTest
+  }; 
 
   const getData = async () => {
     try {
