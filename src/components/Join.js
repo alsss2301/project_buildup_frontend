@@ -9,7 +9,6 @@ axios.defaults.withCredentials = true;
 
 function Join() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [inputs, setInputs] = useState({
@@ -38,15 +37,13 @@ function Join() {
 
   const getData = async () => {
     try {
-      setError(null);
+      // setError(null);
       setData(null);
-      setLoading(true);
 
       const response = await PostData(nickname, id, password);
     } catch (e) {
-      setError(e);
+      alert(`실패.`); //여기 setError가 들어가면 안돼
     }
-    setLoading(false);
   };
 
   return (
