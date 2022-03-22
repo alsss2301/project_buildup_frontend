@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true; //서버 이름이 다를 경우 동일 �
 axios.defaults.baseURL = "http://34.64.111.239:8000/api";
 
 // 회원가입
-const GetData = (nickname, id, password) => {
+const PostData = (nickname, id, password) => {
   API.post(
     "http://34.64.111.239:8000/account/signup/",
     {
@@ -17,4 +17,4 @@ const GetData = (nickname, id, password) => {
   );
 };
 
-export default GetData;
+export default PostData;

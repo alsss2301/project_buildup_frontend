@@ -3,6 +3,7 @@ import axios from "axios";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
 import Home from "../routes/Home";
+import PostData from "../api/api";
 
 axios.defaults.withCredentials = true;
 
@@ -33,7 +34,7 @@ function Join() {
     if (password !== password2) {
       alert("비밀번호와 비밀번호 확인이 다릅니다.");
     }
-  }; 
+  };
 
   const getData = async () => {
     try {
@@ -41,15 +42,7 @@ function Join() {
       setData(null);
       setLoading(true);
 
-      const response = await axios.post(
-        "http://34.64.111.239:8000/account/signup",
-        {
-          nickname: nickname,
-          id: id,
-          password: password,
-        },
-        { withCredentials: true }
-      );
+      const response = await PostData(nickname, id, password);
     } catch (e) {
       setError(e);
     }
