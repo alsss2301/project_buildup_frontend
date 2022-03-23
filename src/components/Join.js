@@ -32,22 +32,14 @@ function Join() {
     if (password !== password2) {
       alert("비밀번호와 비밀번호 확인이 다릅니다.");
     }
-  }; 
+  };
 
   const getData = async () => {
     try {
       // setError(null);
       setData(null); //얘도 에러 원인임. Link to 사용해서 그런데 어차피 나중에 Link to 안쓸꺼니까 나두겠음
 
-      const response = await axios.post(
-        "http://34.64.111.239:8000/account/signup/",
-        {
-          nickname: nickname,
-          id: id,
-          password: password,
-        },
-        { withCredentials: true }
-      );
+      const response = PostData(nickname, id, password);
     } catch (e) {
       alert(`실패.`); //여기 setError가 들어가면 안돼
     }
