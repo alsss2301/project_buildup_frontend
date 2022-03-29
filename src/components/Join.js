@@ -40,7 +40,7 @@ function Join() {
       setData(null); //얘도 에러 원인임. Link to 사용해서 그런데 어차피 나중에 Link to 안쓸꺼니까 나두겠음
 
       const response = await axios.post(
-        "http://34.64.111.239:8000/account/signup/",
+        "/account/signup/",
         {
           nickname: nickname,
           id: id,
