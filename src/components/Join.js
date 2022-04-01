@@ -3,6 +3,7 @@ import axios from "axios";
 import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Join.module.css";
 import Home from "../routes/Home";
+import PostData from "../api/api.js";
 
 axios.defaults.withCredentials = true;
 
@@ -38,7 +39,6 @@ function Join() {
     try {
       // setError(null);
       setData(null); //얘도 에러 원인임. Link to 사용해서 그런데 어차피 나중에 Link to 안쓸꺼니까 나두겠음
-
       const response = PostData(nickname, id, password); //이거 api.js 가져오는 거, 여기 다시 axios 넣지 말 것!
     } catch (e) {
       alert(`실패.`); //여기 setError가 들어가면 안돼
