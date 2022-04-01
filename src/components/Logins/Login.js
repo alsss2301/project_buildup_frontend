@@ -1,7 +1,7 @@
 //로그인화면
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 
 axios.defaults.withCredentials = true; //서버 이름이 다를 경우 동일 기원으로 인식해주기 위해서,, 씀.
@@ -31,7 +31,10 @@ function Login() {
       setData(null);
       setError(null);
 
-      const response = await axios.get("http://34.64.111.239:8000/account/signup/", { withCredentials: true });
+      const response = await axios.get(
+        "http://34.64.111.239:8000/account/signup/",
+        { withCredentials: true }
+      );
       setData(response.data);
       console.log(response.data);
     } catch (e) {
@@ -39,7 +42,6 @@ function Login() {
       console.log(error);
     }
   };
-
 
   useEffect(() => {
     getId();
@@ -67,11 +69,11 @@ function Login() {
         onChange={onChange}
       />
       <br></br>
-      <button className={styles.loginBtn}>
-        로그인
-      </button>
+      <button className={styles.loginBtn}>로그인</button>
       <br></br>
+      <Link to="/join">
         <button className={styles.joinBtn}>회원가입</button>
+      </Link>
     </div>
   );
 }
